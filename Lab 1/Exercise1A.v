@@ -8,7 +8,7 @@ module bcdToGreyGateLevel (b3, b2, b1, b0, g2, g1, g0);
 
     input b3, b2, b1, b0;
     output g2, g1, g0;
-    wire w1, w2, w3, w4, w5, w6, w7, w8, w9, w10, w11;
+    wire w1, w2, w3, w4, w5, w6, w7, w8;
 
     not(w1, b0);
     not(w2, b1);
