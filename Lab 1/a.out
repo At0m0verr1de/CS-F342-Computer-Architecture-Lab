@@ -1,0 +1,153 @@
+#! /opt/homebrew/Cellar/icarus-verilog/12.0/bin/vvp
+:ivl_version "12.0 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "/opt/homebrew/Cellar/icarus-verilog/12.0/lib/ivl/system.vpi";
+:vpi_module "/opt/homebrew/Cellar/icarus-verilog/12.0/lib/ivl/vhdl_sys.vpi";
+:vpi_module "/opt/homebrew/Cellar/icarus-verilog/12.0/lib/ivl/vhdl_textio.vpi";
+:vpi_module "/opt/homebrew/Cellar/icarus-verilog/12.0/lib/ivl/v2005_math.vpi";
+:vpi_module "/opt/homebrew/Cellar/icarus-verilog/12.0/lib/ivl/va_math.vpi";
+S_0x12b7074a0 .scope module, "testbench" "testbench" 2 27;
+ .timescale 0 0;
+v0x12b724130_0 .var "a", 0 0;
+v0x12b7241f0_0 .var "b", 0 0;
+v0x12b724280_0 .var "c", 0 0;
+v0x12b724330_0 .var "d", 0 0;
+v0x12b7243e0_0 .net "f", 0 0, L_0x12b724ed0;  1 drivers
+v0x12b7244b0_0 .net "g", 0 0, L_0x12b724de0;  1 drivers
+v0x12b724540_0 .net "h", 0 0, L_0x12b724930;  1 drivers
+S_0x12b707610 .scope module, "bcdConverter" "bcdToGreyDataFlow" 2 30, 2 7 0, S_0x12b7074a0;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "b3";
+    .port_info 1 /INPUT 1 "b2";
+    .port_info 2 /INPUT 1 "b1";
+    .port_info 3 /INPUT 1 "b0";
+    .port_info 4 /OUTPUT 1 "g2";
+    .port_info 5 /OUTPUT 1 "g1";
+    .port_info 6 /OUTPUT 1 "g0";
+L_0x12b7245f0 .functor NOT 1, v0x12b724280_0, C4<0>, C4<0>, C4<0>;
+L_0x12b7246c0 .functor AND 1, v0x12b724330_0, L_0x12b7245f0, C4<1>, C4<1>;
+L_0x12b7247d0 .functor NOT 1, v0x12b724330_0, C4<0>, C4<0>, C4<0>;
+L_0x12b724840 .functor AND 1, v0x12b724280_0, L_0x12b7247d0, C4<1>, C4<1>;
+L_0x12b724930 .functor OR 1, L_0x12b7246c0, L_0x12b724840, C4<0>, C4<0>;
+L_0x12b724a90 .functor NOT 1, v0x12b7241f0_0, C4<0>, C4<0>, C4<0>;
+L_0x12b724b40 .functor AND 1, v0x12b724280_0, L_0x12b724a90, C4<1>, C4<1>;
+L_0x12b724c70 .functor NOT 1, v0x12b724280_0, C4<0>, C4<0>, C4<0>;
+L_0x12b724ce0 .functor AND 1, v0x12b7241f0_0, L_0x12b724c70, C4<1>, C4<1>;
+L_0x12b724de0 .functor OR 1, L_0x12b724b40, L_0x12b724ce0, C4<0>, C4<0>;
+L_0x12b724ed0 .functor OR 1, v0x12b7241f0_0, v0x12b724130_0, C4<0>, C4<0>;
+v0x12b7078a0_0 .net *"_ivl_0", 0 0, L_0x12b7245f0;  1 drivers
+v0x12b723700_0 .net *"_ivl_10", 0 0, L_0x12b724a90;  1 drivers
+v0x12b7237a0_0 .net *"_ivl_12", 0 0, L_0x12b724b40;  1 drivers
+v0x12b723850_0 .net *"_ivl_14", 0 0, L_0x12b724c70;  1 drivers
+v0x12b723900_0 .net *"_ivl_16", 0 0, L_0x12b724ce0;  1 drivers
+v0x12b7239f0_0 .net *"_ivl_2", 0 0, L_0x12b7246c0;  1 drivers
+v0x12b723aa0_0 .net *"_ivl_4", 0 0, L_0x12b7247d0;  1 drivers
+v0x12b723b50_0 .net *"_ivl_6", 0 0, L_0x12b724840;  1 drivers
+v0x12b723c00_0 .net "b0", 0 0, v0x12b724330_0;  1 drivers
+v0x12b723d10_0 .net "b1", 0 0, v0x12b724280_0;  1 drivers
+v0x12b723da0_0 .net "b2", 0 0, v0x12b7241f0_0;  1 drivers
+v0x12b723e40_0 .net "b3", 0 0, v0x12b724130_0;  1 drivers
+v0x12b723ee0_0 .net "g0", 0 0, L_0x12b724930;  alias, 1 drivers
+v0x12b723f80_0 .net "g1", 0 0, L_0x12b724de0;  alias, 1 drivers
+v0x12b724020_0 .net "g2", 0 0, L_0x12b724ed0;  alias, 1 drivers
+    .scope S_0x12b7074a0;
+T_0 ;
+    %vpi_call 2 34 "$monitor", " ", $time, " bcd=%b%b%b%b    grey=%b%b%b%b", v0x12b724130_0, v0x12b7241f0_0, v0x12b724280_0, v0x12b724330_0, v0x12b724130_0, v0x12b7243e0_0, v0x12b7244b0_0, v0x12b724540_0 {0 0 0};
+    %delay 0, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x12b724130_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x12b7241f0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x12b724280_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x12b724330_0, 0, 1;
+    %delay 1, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x12b724130_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x12b7241f0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x12b724280_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x12b724330_0, 0, 1;
+    %delay 1, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x12b724130_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x12b7241f0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x12b724280_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x12b724330_0, 0, 1;
+    %delay 1, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x12b724130_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x12b7241f0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x12b724280_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x12b724330_0, 0, 1;
+    %delay 1, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x12b724130_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x12b7241f0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x12b724280_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x12b724330_0, 0, 1;
+    %delay 1, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x12b724130_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x12b7241f0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x12b724280_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x12b724330_0, 0, 1;
+    %delay 1, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x12b724130_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x12b7241f0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x12b724280_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x12b724330_0, 0, 1;
+    %delay 1, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x12b724130_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x12b7241f0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x12b724280_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x12b724330_0, 0, 1;
+    %delay 1, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x12b724130_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x12b7241f0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x12b724280_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x12b724330_0, 0, 1;
+    %delay 1, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x12b724130_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x12b7241f0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x12b724280_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x12b724330_0, 0, 1;
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "Exercise1B.v";
