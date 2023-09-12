@@ -4,14 +4,14 @@ This repository contains solutions for the Computer Architecture Labs. The labsh
 
 ## Lab Sheets
 
-1. **Lab Sheet 1:** Introduction to Verilog
-2. **Lab Sheet 2:** Combinational Circuit Modeling
-3. **Lab Sheet 3:** Sequential Circuit Modeling
-4. **Lab Sheet 4:** ALU Design
-5. **Lab Sheet 5:** Register File Implementation
-6. **Lab Sheet 6:** Single Cycle Datapath Design
-7. **Lab Sheet 7:** Designing Main controller for MIPS multicycle implementation
-8. **Lab Sheet 8:** Pipeline Design
+**Lab Sheet 1:** Introduction to Verilog
+**Lab Sheet 2:** Combinational Circuit Modeling
+**Lab Sheet 3:** Sequential Circuit Modeling
+**Lab Sheet 4:** ALU Design
+**Lab Sheet 5:** Register File Implementation
+**Lab Sheet 6:** Single Cycle Datapath Design
+**Lab Sheet 7:** Designing Main controller for MIPS multicycle implementation
+**Lab Sheet 8:** Pipeline Design
 
 ## Getting Started
 
