@@ -22,7 +22,7 @@ endmodule
 
 
 // Behavioural Modelling
-module mux2to11_beh(a, b, s, f);
+module mux2to1_beh(a, b, s, f);
     input a, b, s;
     output f;
 
@@ -35,4 +35,24 @@ module mux2to11_beh(a, b, s, f);
 endmodule
 
 
-// RTL Modelling to be discussed later
+
+// module testbench; 
+//     reg a,b,s;
+//     wire f;
+//     // mux2to1_gate mux_gate (a,b,s,f); 
+//     // mux2to1_df mux_df (a,b,s,f);
+//     mux2to1_beh mux_beh (a,b,s,f);
+    
+//     initial 
+//         begin
+//             // monitor displays the output in the simulation for each time stamp mentioned
+//             $monitor(,$time," a=%b, b=%b, s=%b f=%b",a,b,s,f); 
+//             #0 a=1'b0; b=1'b1;
+//             #2 s=1'b1;
+//             #5 s=1'b0;
+//             #10 a=1'b1; b=1'b0;
+//             #15 s=1'b1;
+//             #20 s=1'b0;
+//             #100 $finish;
+//         end 
+// endmodule
